@@ -35,11 +35,10 @@ router.route('/update/:id').post((req, res) => {
 });
 
 // Delete appointment
-router.route('/delete/:id')
-    .delete((req, res) => {
+router.route('/delete/:id').delete((req, res) => {
         Appointment.findByIdAndDelete(req.params.id)
             .then(() => res.json('Appointment deleted.'))
             .catch(err => res.status(400).json('Error: ' + err));
-    });
+});
 
 module.exports = router;
